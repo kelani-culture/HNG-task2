@@ -13,7 +13,7 @@ def post_request():
 
 # send a get request method
 def get_request():
-    endpoint = "http://localhost:8000/api/2"
+    endpoint = "http://localhost:8000/api/1"
     response = requests.get(endpoint)
     print(response.text)
 
@@ -30,8 +30,8 @@ def delete_request():
 
 if __name__ == "__main__":
     #get_request()
-    delete_request()
+    #delete_request()
     #get_request()
     #put_request()
-    #get_request()
+    get_request()
     #post_request()
