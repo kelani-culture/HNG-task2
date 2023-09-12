@@ -46,7 +46,7 @@ Returns both the `id` and `name`
   "id": 1,
   "name": "John Doe"
 }
-
+```
 
 
 # Update an Entry
@@ -72,7 +72,7 @@ Updates the name of the specified entry using its ID.
 {
   "name": "Jane Doe"
 }
-
+```
 # Delete an Entry
 
 ## Request
