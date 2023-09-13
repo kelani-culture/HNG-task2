@@ -33,7 +33,7 @@ def api_RUD(request, id):
     """
     
     try:
-        user = User.objects.get(id=id)
+        user = User.objects.get(user_id=id)
     except User.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
