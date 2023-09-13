@@ -6,12 +6,12 @@ class UserSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = User
-        fields = ['id', 'name']
+        fields = ['user_id', 'name']
     
     
     def validate_name(self, data):
         result = re.match(r"^[a-zA-Z]+$", data)
         if not result:
             raise serializers.ValidationError("Invalid name")
-        
+ 
         return data

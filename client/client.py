@@ -7,7 +7,7 @@ sends request and receives a response
 # send a post request method
 def post_request():
     endpoint = "http://localhost:8000/api/"
-    response = requests.post(endpoint, json={"name": "123"})
+    response = requests.post(endpoint, json={"name": "mark"})
     print(response.text)
 
 
