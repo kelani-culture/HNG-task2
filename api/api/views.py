@@ -40,14 +40,14 @@ def api_RUD(request, id):
     # Retrieve based on client request
     if request.method == "GET":
         user_serializer = UserSerializer(user)
-        return Response(user_serializer.data)
+        return Response(user_serializer.data, status=status.HTTP_200_OK)
 
     # Update based on client request    
     elif request.method == "PUT":
         user_serializer = UserSerializer(user, data=request.data)
         if user_serializer.is_valid(raise_exception=True):
             user_serializer.save()
-            return Response(user_serializer.data)
+            return Response("Successefully Updated", status=status.HTTP_200_OK)
         
     # delete based on client request
     elif request.method == "DELETE":

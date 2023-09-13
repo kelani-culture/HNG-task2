@@ -6,90 +6,117 @@ This API provides endpoints for performing CRUD (Create, Read, Update, Delete) o
 
 ## Base URL
 
-The base URL for all endpoints is:
+# Dummy API Documentation
 
+## Create a New Record
 
-## Endpoints
+**Request:**
 
-### Create a new entry
-
-#### Request
-
-- URL: `/api/resource`
 - Method: `POST`
-- Content-Type: `application/json`
+- URL: `http://<url>/api`
+- Parameters: 
+  - `name` (string, required): The name of the record.
 
-Creates a new entry with the provided `name`.
+**Response:**
 
-#### Parameters
+- Status Codes:
+  - `201 Created`: Successfully created.
+  - `400 Bad Request`: Invalid input data (e.g., if the name contains digits or alphanumeric characters).
 
-| Name | Type   | Description         |
-| ---- | ------ | ------------------- |
-| name | string | The name to be added |
+**Example:**
 
-#### Example
+```http
+POST http://<url>/api
+Content-Type: application/json
+```
 
-```json
+```Json
 {
   "name": "John Doe"
 }
 ```
+
+
+## Update a Record
+
+### Request
+
+- **Method:** `PUT`
+- **URL:** `http://<url>/api/{user_id}`
+  - Replace `{user_id}` with the unique ID of the record to be updated.
+- **Parameters:**
+  - `name` (string, required): The new name for the record.
 
 ### Response
 
-- Status: `201 Created`
+- **Status Codes:**
+  - `200 OK`: Successfully updated.
+  - `404 Not Found`: Record with the specified ID does not exist.
 
-Returns both the `id` and `name`
+### Example
 
+```http
+PUT http://<url>/api/123
+Content-Type: application/json
 ```
-{
-  "id": 1,
-  "name": "John Doe"
-}
 ```
-
-
-# Update an Entry
-
-**Request**
-
-- URL: `/api/resource/{id}`
-- Method: `PUT`
-- Content-Type: `application/json`
-
-Updates the name of the specified entry using its ID.
-
-**Parameters**
-
-| Name | Type | Description       |
-| ---- | ---- | ----------------- |
-| id   | int  | The ID of the entry |
-| name | string | New name value     |
-
-**Example**
-
-```json
 {
   "name": "Jane Doe"
 }
 ```
-# Delete an Entry
 
-## Request
+# Dummy API Documentation
 
-- **URL:** `/api/resource/{id}`
+## Read a Record
+
+### Request
+
+- **Method:** `GET`
+- **URL:** `http://<url>/api/{user_id}`
+  - Replace `{user_id}` with the unique ID of the record to be retrieved.
+
+### Response
+
+- **Status Codes:**
+  - `200 OK`: Successfully retrieved.
+  - `404 Not Found`: Record with the specified ID does not exist.
+
+### Example
+
+```http
+GET http://<url>/api/123
+```
+*** Response Success ***
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": "123",
+  "name": "Jane Doe"
+}
+```
+
+# Dummy API Documentation
+
+## Delete a Record
+
+### Request
+
 - **Method:** `DELETE`
+- **URL:** `http://<url>/api/{user_id}`
+  - Replace `{user_id}` with the unique ID of the record to be deleted.
 
-Deletes the entry with the specified ID.
+### Response
 
-## Parameters
+- **Status Codes:**
+  - `204 No Content`: Successfully deleted.
+  - `404 Not Found`: Record with the specified ID does not exist.
 
-| Name | Type | Description       |
-| ---- | ---- | ----------------- |
-| id   | int  | The ID of the entry |
+### Example
 
-## Response
-
-- **Status:** `204 No Content`
-
-Indicates successful deletion.
+```http
+DELETE http://<url>/api/123
+HTTP/1.1 204 No Content
+```
