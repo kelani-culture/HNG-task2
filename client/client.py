@@ -7,7 +7,7 @@ sends request and receives a response
 # send a post request method
 def post_request():
     endpoint = "http://localhost:8000/api/"
-    response = requests.post(endpoint, json={"name": "John"})
+    response = requests.post(endpoint, json={"name": "123"})
     print(response.text)
 
 
@@ -18,8 +18,8 @@ def get_request():
     print(response.text)
 
 def put_request():
-    endpoint = "http://localhost:8000/api/1"
-    response = requests.put(endpoint, json={"name": "123"})
+    endpoint = "http://localhost:8000/api/9260"
+    response = requests.put(endpoint, json={"name": "becca"})
     print(response.text)
 
 def delete_request():
@@ -30,6 +30,6 @@ def delete_request():
 
 if __name__ == "__main__":
     #delete_request()
-    #put_request()
+    put_request()
     #get_request()
     #post_request()

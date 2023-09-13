@@ -19,10 +19,9 @@ def api(request):
     # Create based on client request 
     if request.method == 'POST':
         user_serializer = UserSerializer(data=request.data)
-        if user_serializer.is_valid():
+        if user_serializer.is_valid(raise_exception=True):
             user_serializer.save()
             return Response(user_serializer.data, status=status.HTTP_201_CREATED)
-        return Response({"error": "Bad request"}, status=status.HTTP_400_BAD_REQUEST)
 
 
 
@@ -46,11 +45,10 @@ def api_RUD(request, id):
     # Update based on client request    
     elif request.method == "PUT":
         user_serializer = UserSerializer(user, data=request.data)
-        if user_serializer.is_valid():
+        if user_serializer.is_valid(raise_exception=True):
             user_serializer.save()
             return Response(user_serializer.data)
         
-        return Response(user_serializer.error, status=status.HTTP_400_BAD_REQUEST)
     # delete based on client request
     elif request.method == "DELETE":
         user.delete()
